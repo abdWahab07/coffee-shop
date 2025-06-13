@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/coffee-shop/static/css/main.42f57091.css",
-    "main.js": "/coffee-shop/static/js/main.dbcaf1a9.js",
+    "main.js": "/coffee-shop/static/js/main.2f7bfc9d.js",
     "static/js/453.80da4541.chunk.js": "/coffee-shop/static/js/453.80da4541.chunk.js",
     "static/media/Brown and Gold Modern Border Decorative Coffee Beans Coming Soon Video.mp4": "/coffee-shop/static/media/Brown and Gold Modern Border Decorative Coffee Beans Coming Soon Video.f587da076683f835b5f9.mp4",
     "static/media/donut.png": "/coffee-shop/static/media/donut.7ae01425b5981f27d9a0.png",
@@ -10,11 +10,11 @@
     "static/media/LeagueSpartan-Bold.otf": "/coffee-shop/static/media/LeagueSpartan-Bold.caadcad8af387d419251.otf",
     "index.html": "/coffee-shop/index.html",
     "main.42f57091.css.map": "/coffee-shop/static/css/main.42f57091.css.map",
-    "main.dbcaf1a9.js.map": "/coffee-shop/static/js/main.dbcaf1a9.js.map",
+    "main.2f7bfc9d.js.map": "/coffee-shop/static/js/main.2f7bfc9d.js.map",
     "453.80da4541.chunk.js.map": "/coffee-shop/static/js/453.80da4541.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.42f57091.css",
-    "static/js/main.dbcaf1a9.js"
+    "static/js/main.2f7bfc9d.js"
   ]
 }
