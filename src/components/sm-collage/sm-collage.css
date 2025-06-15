@@ -1,0 +1,72 @@
+body {
+  overflow-x: hidden;
+}
+
+.collage-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: auto;
+  overflow-x: hidden; /* Optional safety */
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  height: 450px;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.video-frame:hover .play-overlay {
+  opacity: 1;
+}
+
+.play-icon {
+  width: 48px;
+  height: 48px;
+  fill: white;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.6));
+}
+
+@media (max-width: 1024px) {
+  .collage-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .video-frame {
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .collage-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .video-frame {
+    height: 180px;
+  }
+}
