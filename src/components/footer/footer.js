@@ -12,13 +12,20 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 
+// Animation Variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const Footer = () => {
   return (
     <motion.footer
       className="footer bg-dark text-light d-flex flex-wrap"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
     >
       {/* Video Section */}
       <div className="footer-video col-md-4">
@@ -29,9 +36,15 @@ const Footer = () => {
       <div className="footer-content col-md-8 p-4">
         <div className="row">
           {/* Company Info */}
-          <div className="footer-column">
+          <motion.div
+            className="footer-column"
+            variants={fadeUp}
+            transition={{ delay: 0.2 }}
+          >
             <img src={logo} alt="Logo" className="footer-logo mb-2" />
-            <h3 className="text-uppercase">Awesome Cafe</h3>
+            <motion.h3 className="text-uppercase" variants={fadeUp}>
+              Awesome Cafe
+            </motion.h3>
             <p>
               <FaPhoneAlt className="me-2 icon" /> +92 300 1234567
             </p>
@@ -41,58 +54,80 @@ const Footer = () => {
             <p>
               <FaMapMarkerAlt className="me-2 icon" /> 123 Main Street, Karachi
             </p>
-          </div>
+          </motion.div>
 
           {/* Navigation Links */}
-          <div className="footer-column centered">
+          <motion.div
+            className="footer-column centered"
+            variants={fadeUp}
+            transition={{ delay: 0.4 }}
+          >
             <h4 className="text-uppercase">Quick Links</h4>
             <ul className="list-unstyled">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">Menu</a>
-              </li>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Contact Us</a>
-              </li>
-              <li>
-                <a href="#">Timings</a>
-              </li>
+              {["Home", "Menu", "About Us", "Contact Us", "Timings"].map(
+                (text, index) => (
+                  <motion.li
+                    key={index}
+                    variants={fadeUp}
+                    transition={{ delay: 0.5 + index * 0.1 }}
+                  >
+                    <a href="#">{text}</a>
+                  </motion.li>
+                )
+              )}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Follow Us */}
-          <div className="footer-column centered">
+          {/* Social Icons */}
+          <motion.div
+            className="footer-column centered"
+            variants={fadeUp}
+            transition={{ delay: 0.6 }}
+          >
             <h4 className="text-uppercase">Follow Us</h4>
             <div className="d-flex justify-content-center gap-3 mt-2">
-              <a href="#" className="social-icon">
-                <FaFacebook />
-              </a>
-              <a href="#" className="social-icon">
-                <FaInstagram />
-              </a>
-              <a href="#" className="social-icon">
-                <FaTwitter />
-              </a>
+              {[FaFacebook, FaInstagram, FaTwitter].map((Icon, idx) => (
+                <motion.a
+                  href="#"
+                  key={idx}
+                  className="social-icon"
+                  variants={fadeUp}
+                  transition={{ delay: 0.7 + idx * 0.1 }}
+                >
+                  <Icon />
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Timings + Buttons Row */}
-        <div className="footer-row mt-4">
+        <motion.div
+          className="footer-row mt-4"
+          variants={fadeUp}
+          transition={{ delay: 0.9 }}
+        >
           <h4 className="text-uppercase mb-2">Timings</h4>
           <p className="timing-text mb-3">
             Open from Mon to Sun: 10 AM – 10 PM
           </p>
-          <div className="d-flex justify-content-center gap-3">
-            <button className="btn-order">Order Now</button>
-            <button className="btn-locate">Locate Us</button>
+          <div className="d-flex justify-content-center gap-3 flex-wrap">
+            <motion.button
+              className="btn-order"
+              variants={fadeUp}
+              transition={{ delay: 1 }}
+            >
+              Order Now
+            </motion.button>
+            <motion.button
+              className="btn-locate"
+              variants={fadeUp}
+              transition={{ delay: 1.1 }}
+            >
+              Locate Us
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.footer>
   );
