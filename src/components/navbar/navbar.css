@@ -41,16 +41,25 @@
   font-size: 5.5rem;
 }
 
+/* Ensure navbar is always visible */
+.navbar {
+  display: block !important;
+  visibility: visible !important;
+}
+
 .custom-navbar {
   background-color: rgba(0, 0, 0, 0.5); /* Transparent */
-  position: relative;
-  z-index: 10;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .solid-navbar {
   background-color: #2a2728; /* Solid dark color */
   position: relative;
-  z-index: 10;
+  z-index: 1000;
 }
 
 li a {

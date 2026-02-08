@@ -1,14 +1,7 @@
 @font-face {
-  font-family: "LeagueSpartian";
-  src: url("./assets/fonts/LeagueSpartan-Bold.otf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Magnolia";
-  src: url("./assets/fonts/Magnolia\ Script.otf") format("truetype");
-  font-weight: normal;
+  font-family: "LeagueSpartan";
+  src: url("./assets/fonts/LeagueSpartan-Bold.otf") format("opentype");
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -17,4 +10,33 @@
   src: url("./assets/fonts/Alice-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Magnolia Script";
+  src: url("./assets/fonts/Magnolia Script-CAK5cvxO.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Google Fonts - Yellowtail */
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
+/* Global Font Settings */
+* {
+  font-family: "Yellowtail", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Headings keep LeagueSpartan */
+h1, h2, h3, h4, h5, h6, .hero-title, .section-title, .form-title, .store-name, .contact-title {
+  font-family: "LeagueSpartan", sans-serif !important;
+}
+
+/* Hide video container on contact page */
+body.contact-page-active .video-container,
+body[data-route="contact-us"] .video-container,
+body:has(.contact-page) .video-container {
+  display: none !important;
 }

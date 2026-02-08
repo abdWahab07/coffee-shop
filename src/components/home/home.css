@@ -46,6 +46,30 @@
   gap: 40px;
 }
 
+/* Add to Cart Button */
+.add-to-cart-btn {
+  background: #ff8500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: #e67300;
+  transform: translateY(-2px);
+}
+
+.price {
+  font-weight: 600;
+  color: #ff8500;
+  margin: 10px 0;
+}
+
 /* Left Text Column */
 .home-text-section {
   flex: 1;
@@ -64,7 +88,6 @@
   font-size: 1.1rem;
   line-height: 1.6;
   text-align: justify;
-  font-family: "Alice";
   font-weight: bold;
 }
 
@@ -119,7 +142,6 @@
 }
 
 .card p {
-  font-family: "Alice";
   font-size: 0.9rem;
   text-align: justify;
   font-weight: bold;
@@ -330,7 +352,6 @@
 }
 
 .signup-text p {
-  font-family: "Alice";
   font-size: 1.1rem;
 }
 

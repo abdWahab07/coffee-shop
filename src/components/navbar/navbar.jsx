@@ -6,6 +6,7 @@ import logo from "../../assets/navbar/logo.png";
 import donutImage from "../../assets/navbar/donut.png";
 import "./navbar.css";
 import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 
 const linkVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -31,7 +32,7 @@ const TypewriterText = () => {
       }, 100);
       return () => clearTimeout(timeout);
     }
-  }, [index]);
+  }, [index, fullText]);
 
   return (
     <h1>
@@ -45,11 +46,14 @@ const TypewriterText = () => {
 const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/home" || location.pathname === "/";
+  const isContactPage = location.pathname === "/contact-us";
+  const { cartItemCount, openCart } = useCart();
 
   return (
-    <div className="video-container">
-      {isHomePage && (
-        <>
+    <>
+      {/* Video elements only show on home page */}
+      {isHomePage && !isContactPage && (
+        <div className="video-container">
           <motion.img
             src={donutImage}
             alt="Donut"
@@ -90,9 +94,10 @@ const Navbar = () => {
               </NavLink>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
 
+      {/* Navbar always shows */}
       <motion.nav
         className={`navbar navbar-expand-lg navbar-dark px-5 text-uppercase ${
           isHomePage ? "custom-navbar" : "solid-navbar"
@@ -152,27 +157,30 @@ const Navbar = () => {
                 </motion.li>
               ))}
               <motion.li
-                className="nav-item text-uppercase"
+                className="nav-item text-uppercase position-relative"
                 custom={5}
                 variants={linkVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <NavLink
-                  className="nav-link"
-                  to="/cart"
-                  style={({ isActive }) => ({
-                    color: isActive ? "#ff8500" : "white",
-                  })}
+                <button
+                  className="nav-link btn btn-link"
+                  onClick={openCart}
+                  style={{ color: "white" }}
                 >
                   <FaShoppingCart size={30} />
-                </NavLink>
+                  {cartItemCount > 0 && (
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      {cartItemCount}
+                    </span>
+                  )}
+                </button>
               </motion.li>
             </ul>
           </div>
         </div>
       </motion.nav>
-    </div>
+    </>
   );
 };
 

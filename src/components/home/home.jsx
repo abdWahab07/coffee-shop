@@ -3,10 +3,6 @@ import { motion, useAnimation } from "framer-motion";
 
 import donut from "../../assets/navbar/donut.png";
 import crosant from "../../assets/navbar/crosant.png";
-import hotImg from "../../assets/navbar/hotImg.png";
-import coldImg from "../../assets/navbar/coldImg.png";
-import dessertImg from "../../assets/navbar/dessertImg.png";
-import savouryImg from "../../assets/navbar/savouryImg.png";
 import offerOne from "../../assets/home/offer_1.jpg";
 import offerTwo from "../../assets/home/offer_2.jpg";
 import offerThree from "../../assets/home/offer_3.jpg";
@@ -48,29 +44,6 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [donutControls, croissantControls]);
 
-  const productCards = [
-    {
-      title: "Hot Beverages",
-      desc: "Made with 100% Arabica beans & crafted to perfection, Tims hot beverages are guaranteed to add a cosy touch to your day.",
-      img: hotImg,
-    },
-    {
-      title: "Cold Beverages",
-      desc: "Beat the heat with Tims cold beverages including creamy Iced Capps, Iced Coffees, and Frozen blends etc.",
-      img: coldImg,
-    },
-    {
-      title: "Donuts & Desserts",
-      desc: "Premium Donuts, signature Timbits and freshly baked treats whose every bite is baked with love and sprinkled with care.",
-      img: dessertImg,
-    },
-    {
-      title: "Savouries",
-      desc: "From freshly prepared sandwiches to delicious paninis, wraps and croissant sandwiches. Tims has got you covered for your breakfast and lunch cravings.",
-      img: savouryImg,
-    },
-  ];
-
   const limitedOffers = [
     { img: offerOne, title: "Pumpkin Spice Latte" },
     { img: offerTwo, title: "Summer Berry Chill" },
@@ -103,33 +76,16 @@ const Home = () => {
         <div className="home-text-section p-5">
           <h2>Our Product</h2>
           <p>
-            Discover Tim Hortons' Flavorful Journey. <br />
-            Tim Hortons®, known for our freshly brewed coffee and scrumptious
+            Discover Coffee Shop's Flavorful Journey. <br />
+            Coffee Shop®, known for our freshly brewed coffee and scrumptious
             and tempting food. Experience that warm fuzzy feeling with your
             favourite brews and bites to make your day!
           </p>
           <button className="menu-button">See Complete Menu</button>
         </div>
-
-        <div className="cards-section p-5">
-          {productCards.map(({ title, desc, img }, idx) => (
-            <motion.div
-              className="card"
-              key={idx}
-              initial={{ scale: 0.7, rotate: -3, opacity: 0 }}
-              whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
-              transition={{ duration: 0.7, delay: idx * 0.2, type: "spring" }}
-              viewport={{ once: true }}
-            >
-              <img src={img} alt={title} />
-              <h3>{title}</h3>
-              <p>{desc}</p>
-            </motion.div>
-          ))}
-        </div>
       </div>
 
-      <h1 ref={stopRef} className="scroll-stop" />
+      <div ref={stopRef} className="scroll-stop" />
 
       {/* Limited Time Offers */}
       <div className="limited-offers-section py-5 px-4">
